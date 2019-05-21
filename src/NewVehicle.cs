@@ -8,16 +8,23 @@ namespace SIS
 {
     public class NewVehicle : Vehicle
     {
+        private string _vehicleType;
         private string _manufacturer;
-        private int _baseCost;
+        private double _baseCost;
 
+        public NewVehicle( string name, string model, string year, string baseCost, string manufacturer) : base (name, model, year)
+        {
+            _baseCost = Convert.ToDouble(baseCost);
+            _manufacturer = manufacturer;
+            _vehicleType = "New Vehicle";
+        }
         public string Manufacturer
         {
             get { return _manufacturer; }
             set { _manufacturer = value; }
         }
 
-        public int BaseCost
+        public double BaseCost
         {
             get { return _baseCost; }
             set { _baseCost = value; }

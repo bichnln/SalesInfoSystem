@@ -9,6 +9,12 @@ namespace SIS
     public class TradeInVehicle : Vehicle
     {
         private string _make;
+        private string _vehicleType;
+        public TradeInVehicle(string name, string model, string year, string make) : base(name, model, year)
+        {
+            _make = make;
+            _vehicleType = "Trade-in Vehicle";
+        }
 
         public string Make
         {

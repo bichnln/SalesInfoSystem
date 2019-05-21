@@ -10,8 +10,14 @@ namespace SIS
     {
         private string _code;
         private string _description;
-        private int _price;
+        private double _price;
 
+        public DealerOption(string code, string description, string price)
+        {
+            _code = code;
+            _description = description;
+            _price = Convert.ToDouble( price );
+        }
         public string Code
         {
             get { return _code; }
@@ -24,7 +30,7 @@ namespace SIS
             set { _description = value; }
         }
 
-        public int Price
+        public double Price
         {
             get { return _price; }
             set { _price = value; }

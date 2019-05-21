@@ -27,19 +27,64 @@ namespace SIS
 
             file.Close();
         }
-        public static void LoadVehicles()
+        public static void LoadVehicles(string filePath)
         {
+            string line;
+            VehicleFactory factory;
+            Vehicle vehicle;
+            System.IO.StreamReader file = new System.IO.StreamReader( filePath );
+            while ((line = file.ReadLine()) != null)
+            {
+                string[] words = line.Split( ',' );
+                if (words[0] == "New Vehicle")
+                {
+                    factory = new NewVehicleFactory( words[1], words[2], words[3], words[4], words[5] );
+                    vehicle = factory.GetVehicle();
+                    VehicleList.Add( vehicle );
 
+                }
+                else if (words[0] == "Trade-in Vehicle")
+                {
+                    factory = new TradeInVehicleFactory( words[1], words[2], words[3], words[4] );
+                    vehicle = factory.GetVehicle();
+                    VehicleList.Add( vehicle );
+                }
+            }
+            file.Close();
         }
 
-        public static void LoadSalesPeople()
+        public static void LoadSalesPeople(string filePath)
         {
+            string line;
+            System.IO.StreamReader file = new System.IO.StreamReader( filePath );
+            while ((line = file.ReadLine()) != null)
+            {
+                string[] words = line.Split( ',' );
+                SalespersonList.Add( new Salesperson( words[0], words[1], words[2], words[3] ) );
+            }
 
+            file.Close();
         }
 
-        public static void LoadDealOptions()
+        public static void LoadDealOptions(string filePath)
         {
+            string line;
+            System.IO.StreamReader file = new System.IO.StreamReader( filePath );
+            while ((line = file.ReadLine()) != null)
+            {
+                string[] words = line.Split(',');
+                OptionList.Add( new DealerOption(words[0], words[1], words[2]) );
+            }
+        }
+        public static void SaveCustomerList( string filePath )
+        {
+            System.IO.StreamWriter file = new System.IO.StreamWriter( filePath );
 
+            foreach (Customer c in CustomerList)
+            {
+                file.WriteLine( c.FirstName + ',' + c.LastName + ',' + c.Address + ',' + c.PhoneNumber );
+            }
+            file.Close();
         }
     }
 }

@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace SIS
 {
-    class FilePath
+    public static class FilePath
     {
+        static string CustomerListPath = @"C:\Users\SAPPHIRE\Documents\University\Software Architecture & Design\Assignment 2\CustomerList.txt";
+
+        static string StaffListPath = @"C:\Users\SAPPHIRE\Documents\University\Software Architecture & Design\Assignment 2\StaffList.txt";
+
+        static string VehicleListPath;
+
+        static string InvoiceListPath;
     }
 }

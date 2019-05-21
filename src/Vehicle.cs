@@ -8,10 +8,23 @@ namespace SIS
 {
     public abstract class Vehicle
     {
+        private string _vehicleType;
         private string _serialNumber;
         private string _name;
         private string _model;
-        private int _year;
+        private string _year;
+
+        public Vehicle(string name, string model, string year)
+        {    
+            _name = name;
+            _model = model;
+            _year = year;
+        }
+
+        public string VehicleType
+        {
+            get { return _vehicleType; }
+        }
 
         public string SerialNumber
         {
@@ -31,13 +44,22 @@ namespace SIS
             set { _model = value; }
         }
 
-        public int Year
+        public string Year
         {
             get { return _year; }
             set { _year = value; }
         }
 
-        public bool IsInYear(int y)
+        public string FullDescription()
+        {
+            string fullDesc;
+            fullDesc = "Name: " + _name + '\n'
+                     + "Model: " + _model + '\n'
+                     + "Year: " + _year + '\n';
+
+            return fullDesc;
+        }
+        public bool IsInYear(string y)
         {
             if (_year == y)
             {
