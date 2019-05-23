@@ -10,11 +10,19 @@ using System.Windows.Forms;
 
 namespace SIS
 {
-    public partial class AddCustomer : Form
+    public partial class EditCustomer : Form
     {
-        public AddCustomer()
+        public Customer selected;
+        public EditCustomer( ref Customer c )
         {
             InitializeComponent();
+            selected = c;
+
+            FirstnameTB.Text = selected.FirstName;
+            LastnameTB.Text = selected.LastName;
+            AddressTB.Text = selected.Address;
+            PhoneTB.Text = selected.PhoneNumber;
+
         }
 
         private void FirstnameTB_TextChanged( object sender, EventArgs e )
@@ -28,7 +36,12 @@ namespace SIS
             DialogResult = DialogResult.Cancel;
         }
 
-        private void SaveButton_Click( object sender, EventArgs e )
+        private void FirstnameTB_TextChanged_1( object sender, EventArgs e )
+        {
+           
+        }
+
+        private void SaveButton_Click_1( object sender, EventArgs e )
         {
             string firstName = FirstnameTB.Text;
             string lastName = LastnameTB.Text;
@@ -40,9 +53,9 @@ namespace SIS
             DialogResult = DialogResult.None;
 
             // check if input is valid
-            msg += Validation.EmptyCheck( firstName, "First Name" );
-            msg += Validation.EmptyCheck( lastName, "Last Name" );
-            msg += Validation.EmptyCheck( address, "Address " );
+            msg += Validation.EmptyCheck( firstName, FirstnameLabel.Text );
+            msg += Validation.EmptyCheck( lastName, LastnameLabel.Text );
+            msg += Validation.EmptyCheck( address, AddressLabel.Text );
             msg += Validation.PhoneNumberCheck( phoneNumber );
 
             if (msg != "")
@@ -51,15 +64,13 @@ namespace SIS
             }
             else
             {
-                Customer c = new Customer( firstName, lastName, address, phoneNumber );
-                Database.CustomerList.Add( c );
-                
+                selected.FirstName = firstName;
+                selected.LastName = lastName;
+                selected.Address = address;
+                selected.PhoneNumber = phoneNumber;
 
-
-                MessageBox.Show( "New customer added!" );
-                DialogResult = DialogResult.OK;
+                this.DialogResult = DialogResult.OK;
             }
-
         }
     }
 }

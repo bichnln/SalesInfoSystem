@@ -8,7 +8,6 @@ namespace SIS
 {
     public abstract class Vehicle
     {
-        private string _vehicleType;
         private string _serialNumber;
         private string _name;
         private string _model;
@@ -21,10 +20,11 @@ namespace SIS
             _year = year;
         }
 
-        public string VehicleType
+        public abstract string VehicleType
         {
-            get { return _vehicleType; }
+            get;
         }
+        
 
         public string SerialNumber
         {

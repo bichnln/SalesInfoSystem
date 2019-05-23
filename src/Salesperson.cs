@@ -8,9 +8,15 @@ namespace SIS
 {
     public class Salesperson : Human
     {
-        public Salesperson(string firstName, string lastName, string address, string phoneNumber) : base(firstName, lastName, address, phoneNumber)
+        private string _position;
+        public Salesperson(string firstName, string lastName, string address, string phoneNumber, string position) : base(firstName, lastName, address, phoneNumber)
         {
+            _position = position;
+        }
 
+        public string Position
+        {
+            get { return _position; }
         }
     }
 }

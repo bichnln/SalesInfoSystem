@@ -35,5 +35,10 @@ namespace SIS
 
             MessageBox.Show( Database.CustomerList[3].FullName );
         }
+
+        private void FormTitleLabel_Click( object sender, EventArgs e )
+        {
+
+        }
     }
 }

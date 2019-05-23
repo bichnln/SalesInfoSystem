@@ -10,11 +10,19 @@ using System.Windows.Forms;
 
 namespace SIS
 {
-    public partial class AddDealerOption : Form
+    public partial class EditDealerOption : Form
     {
-        public AddDealerOption()
+        public DealerOption selected;
+        public EditDealerOption(ref DealerOption o)
         {
             InitializeComponent();
+            selected = o;
+
+            CodeTB.Text = selected.Code;
+            DescriptionTB.Text = selected.Description;
+            PriceTB.Text = selected.Price.ToString();
+
+            this.DialogResult = DialogResult.None;
         }
 
         private void textBox1_TextChanged( object sender, EventArgs e )
@@ -30,8 +38,6 @@ namespace SIS
 
             string msg = "";
 
-            this.DialogResult = DialogResult.None;
-
             msg += Validation.EmptyCheck( code, CodeLabel.Text );
             msg += Validation.EmptyCheck( desc, DescriptionLabel.Text );
             msg += Validation.EmptyCheck( price, PriceLabel.Text );
@@ -42,9 +48,10 @@ namespace SIS
             }
             else
             {
-                DealerOption opt = new DealerOption( code, desc, price );
-                Database.OptionList.Add( opt );
-                MessageBox.Show( "Dealer option added successfully!" );
+                selected.Code = code;
+                selected.Description = desc;
+                selected.Price = Convert.ToDouble( price );
+
                 this.DialogResult = DialogResult.OK;
             }
 
@@ -53,6 +60,11 @@ namespace SIS
         private void CancelButton_Click( object sender, EventArgs e )
         {
             this.Close();
+        }
+
+        private void CodeTB_TextChanged( object sender, EventArgs e )
+        {
+
         }
     }
 }

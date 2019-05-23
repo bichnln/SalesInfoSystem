@@ -1,6 +1,6 @@
 ﻿namespace SIS
 {
-    partial class AddDealerOption
+    partial class EditDealerOption
     {
         /// <summary>
         /// Required designer variable.
@@ -102,6 +102,7 @@
             this.CodeTB.Name = "CodeTB";
             this.CodeTB.Size = new System.Drawing.Size(372, 23);
             this.CodeTB.TabIndex = 15;
+            this.CodeTB.TextChanged += new System.EventHandler(this.CodeTB_TextChanged);
             // 
             // PriceLabel
             // 
@@ -150,7 +151,7 @@
             this.TitleLabel.TabIndex = 21;
             this.TitleLabel.Text = "Dealer Option";
             // 
-            // AddDealerOption
+            // EditDealerOption
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -166,8 +167,8 @@
             this.Controls.Add(this.PriceLabel);
             this.Controls.Add(this.DescriptionLabel);
             this.Controls.Add(this.CodeLabel);
-            this.Name = "AddDealerOption";
-            this.Text = "AddDealerOption";
+            this.Name = "EditDealerOption";
+            this.Text = "EditDealerOption";
             this.ResumeLayout(false);
             this.PerformLayout();
 

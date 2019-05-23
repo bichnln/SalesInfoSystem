@@ -18,7 +18,7 @@ namespace SIS
             _name = name;
             _model = model;
             _year = year;
-            _make = _make;
+            _make = make;
         }
 
         public override Vehicle GetVehicle()

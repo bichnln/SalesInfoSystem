@@ -40,6 +40,7 @@ namespace SIS
                 {
                     factory = new NewVehicleFactory( words[1], words[2], words[3], words[4], words[5] );
                     vehicle = factory.GetVehicle();
+                    
                     VehicleList.Add( vehicle );
 
                 }
@@ -48,8 +49,11 @@ namespace SIS
                     factory = new TradeInVehicleFactory( words[1], words[2], words[3], words[4] );
                     vehicle = factory.GetVehicle();
                     VehicleList.Add( vehicle );
+                    Console.WriteLine( vehicle.Name );
+                    Console.WriteLine( VehicleList[0].Name );
                 }
             }
+            
             file.Close();
         }
 
@@ -60,14 +64,15 @@ namespace SIS
             while ((line = file.ReadLine()) != null)
             {
                 string[] words = line.Split( ',' );
-                SalespersonList.Add( new Salesperson( words[0], words[1], words[2], words[3] ) );
+                SalespersonList.Add( new Salesperson( words[0], words[1], words[2], words[3], words[4] ) );
             }
 
             file.Close();
         }
 
-        public static void LoadDealOptions(string filePath)
+        public static void LoadDealOptions()
         {
+            string filePath = FilePath.DealOptListPath;
             string line;
             System.IO.StreamReader file = new System.IO.StreamReader( filePath );
             while ((line = file.ReadLine()) != null)
@@ -75,6 +80,7 @@ namespace SIS
                 string[] words = line.Split(',');
                 OptionList.Add( new DealerOption(words[0], words[1], words[2]) );
             }
+            file.Close();
         }
         public static void SaveCustomerList( string filePath )
         {
@@ -83,6 +89,41 @@ namespace SIS
             foreach (Customer c in CustomerList)
             {
                 file.WriteLine( c.FirstName + ',' + c.LastName + ',' + c.Address + ',' + c.PhoneNumber );
+            }
+            file.Close();
+        }
+
+        public static void SaveVehicleList()
+        {
+            string filePath = FilePath.VehicleListPath;
+            System.IO.StreamWriter file = new System.IO.StreamWriter( filePath );
+            
+            foreach (Vehicle v in VehicleList)
+            {
+                if (v.VehicleType == "New Vehicle")
+                {
+                    NewVehicle temp = (NewVehicle)v;
+                    file.WriteLine( temp.VehicleType + ',' + temp.Name + ',' + temp.Model + ',' + temp.Year + ',' + temp.BaseCost + ',' + temp.Manufacturer );
+                }
+
+                if (v.VehicleType == "Trade-in Vehicle")
+                {
+                    TradeInVehicle temp = (TradeInVehicle)v;
+                    file.WriteLine( temp.VehicleType + ',' + temp.Name + ',' + temp.Model + ',' + temp.Year + ',' + temp.Make );
+                }
+            }
+
+            file.Close();
+        }
+
+        public static void SaveDealerOptions()
+        {
+            string filePath = FilePath.DealOptListPath;
+            System.IO.StreamWriter file = new System.IO.StreamWriter( filePath );
+
+            foreach (DealerOption o in OptionList)
+            {
+                file.WriteLine( o.Code + ',' + o.Description + ',' + o.Price);
             }
             file.Close();
         }

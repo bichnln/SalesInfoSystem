@@ -36,9 +36,9 @@
             this.LastnameTB = new System.Windows.Forms.TextBox();
             this.AddressTB = new System.Windows.Forms.TextBox();
             this.PhoneTB = new System.Windows.Forms.TextBox();
-            this.SaveButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
             this.FormTitleLabel = new System.Windows.Forms.Label();
+            this.SaveButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // FirstnameLabel
@@ -129,17 +129,6 @@
             this.PhoneTB.Size = new System.Drawing.Size(372, 23);
             this.PhoneTB.TabIndex = 8;
             // 
-            // SaveButton
-            // 
-            this.SaveButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.SaveButton.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveButton.Location = new System.Drawing.Point(251, 410);
-            this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(93, 32);
-            this.SaveButton.TabIndex = 9;
-            this.SaveButton.Text = "SAVE";
-            this.SaveButton.UseVisualStyleBackColor = false;
-            // 
             // CancelButton
             // 
             this.CancelButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -150,6 +139,7 @@
             this.CancelButton.TabIndex = 10;
             this.CancelButton.Text = "CANCEL";
             this.CancelButton.UseVisualStyleBackColor = false;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // FormTitleLabel
             // 
@@ -162,15 +152,27 @@
             this.FormTitleLabel.TabIndex = 11;
             this.FormTitleLabel.Text = "Customer\'s Information";
             // 
+            // SaveButton
+            // 
+            this.SaveButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.SaveButton.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveButton.Location = new System.Drawing.Point(267, 410);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(93, 32);
+            this.SaveButton.TabIndex = 12;
+            this.SaveButton.Text = "SAVE";
+            this.SaveButton.UseVisualStyleBackColor = false;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
+            // 
             // AddCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(729, 480);
+            this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.FormTitleLabel);
             this.Controls.Add(this.CancelButton);
-            this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.PhoneTB);
             this.Controls.Add(this.AddressTB);
             this.Controls.Add(this.LastnameTB);
@@ -196,9 +198,9 @@
         private System.Windows.Forms.TextBox LastnameTB;
         private System.Windows.Forms.TextBox AddressTB;
         private System.Windows.Forms.TextBox PhoneTB;
-        private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Label FormTitleLabel;
+        private System.Windows.Forms.Button SaveButton;
     }
 }
 

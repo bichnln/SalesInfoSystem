@@ -149,6 +149,7 @@
             this.MakeTB.Name = "MakeTB";
             this.MakeTB.Size = new System.Drawing.Size(372, 23);
             this.MakeTB.TabIndex = 13;
+            this.MakeTB.TextChanged += new System.EventHandler(this.MakeTB_TextChanged);
             // 
             // MakeLabel
             // 

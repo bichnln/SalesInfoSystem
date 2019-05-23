@@ -143,6 +143,7 @@
             this.SaveButton.TabIndex = 9;
             this.SaveButton.Text = "SAVE";
             this.SaveButton.UseVisualStyleBackColor = false;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click_1);
             // 
             // CancelButton
             // 
@@ -154,6 +155,7 @@
             this.CancelButton.TabIndex = 10;
             this.CancelButton.Text = "CANCEL";
             this.CancelButton.UseVisualStyleBackColor = false;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // FormTitleLabel
             // 
@@ -165,6 +167,7 @@
             this.FormTitleLabel.Size = new System.Drawing.Size(381, 43);
             this.FormTitleLabel.TabIndex = 11;
             this.FormTitleLabel.Text = "Vehicle\'s Information";
+            this.FormTitleLabel.Click += new System.EventHandler(this.FormTitleLabel_Click);
             // 
             // BaseCostTB
             // 

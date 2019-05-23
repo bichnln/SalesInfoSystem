@@ -15,6 +15,10 @@ namespace SIS
             _make = make;
             _vehicleType = "Trade-in Vehicle";
         }
+        public override string VehicleType
+        {
+            get { return _vehicleType; }
+        }
 
         public string Make
         {

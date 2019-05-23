@@ -1,6 +1,6 @@
 ﻿namespace SIS
 {
-    partial class AddSalesperson
+    partial class EditCustomer
     {
         /// <summary>
         /// Required designer variable.
@@ -98,6 +98,7 @@
             this.FirstnameTB.Name = "FirstnameTB";
             this.FirstnameTB.Size = new System.Drawing.Size(372, 23);
             this.FirstnameTB.TabIndex = 5;
+            this.FirstnameTB.TextChanged += new System.EventHandler(this.FirstnameTB_TextChanged_1);
             // 
             // LastnameTB
             // 
@@ -139,6 +140,7 @@
             this.SaveButton.TabIndex = 9;
             this.SaveButton.Text = "SAVE";
             this.SaveButton.UseVisualStyleBackColor = false;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click_1);
             // 
             // CancelButton
             // 
@@ -150,20 +152,20 @@
             this.CancelButton.TabIndex = 10;
             this.CancelButton.Text = "CANCEL";
             this.CancelButton.UseVisualStyleBackColor = false;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // FormTitleLabel
             // 
             this.FormTitleLabel.AutoSize = true;
             this.FormTitleLabel.Font = new System.Drawing.Font("Cambria", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormTitleLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.FormTitleLabel.Location = new System.Drawing.Point(202, 36);
+            this.FormTitleLabel.Location = new System.Drawing.Point(122, 36);
             this.FormTitleLabel.Name = "FormTitleLabel";
-            this.FormTitleLabel.Size = new System.Drawing.Size(340, 43);
+            this.FormTitleLabel.Size = new System.Drawing.Size(501, 43);
             this.FormTitleLabel.TabIndex = 11;
-            this.FormTitleLabel.Text = "Staff\'s Information";
-            this.FormTitleLabel.Click += new System.EventHandler(this.FormTitleLabel_Click);
+            this.FormTitleLabel.Text = "Edit Customer\'s Information";
             // 
-            // AddSalesperson
+            // EditCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -180,8 +182,8 @@
             this.Controls.Add(this.AddressLabel);
             this.Controls.Add(this.LastnameLabel);
             this.Controls.Add(this.FirstnameLabel);
-            this.Name = "AddSalesperson";
-            this.Text = "AddSalesperson";
+            this.Name = "EditCustomer";
+            this.Text = "EditCustomer";
             this.ResumeLayout(false);
             this.PerformLayout();
 

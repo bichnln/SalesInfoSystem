@@ -10,28 +10,22 @@ using System.Windows.Forms;
 
 namespace SIS
 {
-    public partial class AddTradeInVehicle : Form
+    public partial class AreYouSure : Form
     {
-        public AddTradeInVehicle()
+        public AreYouSure()
         {
             InitializeComponent();
+            DialogResult = DialogResult.None;
         }
 
-        
-
-        private void SaveButton_Click( object sender, EventArgs e )
+        private void YesButton_Click( object sender, EventArgs e )
         {
-            
+            DialogResult = DialogResult.OK;
         }
 
-        private void YearLabel_Click( object sender, EventArgs e )
+        private void NoButton_Click( object sender, EventArgs e )
         {
-
-        }
-
-        private void MakeTB_TextChanged( object sender, EventArgs e )
-        {
-
+            DialogResult = DialogResult.Cancel;
         }
     }
 }

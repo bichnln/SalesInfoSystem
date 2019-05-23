@@ -18,6 +18,10 @@ namespace SIS
             _manufacturer = manufacturer;
             _vehicleType = "New Vehicle";
         }
+        public override string VehicleType
+        {
+            get { return _vehicleType; }
+        }
         public string Manufacturer
         {
             get { return _manufacturer; }
