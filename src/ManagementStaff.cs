@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace SIS
 {
-    public class Salesperson : Human
+    public class ManagementStaff : Human
     {
         private string _role;
-        public Salesperson(string firstName, string lastName, string address, string phoneNumber) : base(firstName, lastName, address, phoneNumber)
+
+        public ManagementStaff(string firstName, string lastName, string address, string phoneNumber ) : base(firstName, lastName, address, phoneNumber)
         {
-           _role = "Salesperson";
+            _role = "Staff";
         }
 
         public override string Role

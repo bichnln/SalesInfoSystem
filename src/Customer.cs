@@ -8,9 +8,16 @@ namespace SIS
 {
     public class Customer : Human
     {
+        private string _role;
+
         public Customer(string firstName, string lastName, string address, string phoneNumber) : base(firstName, lastName, address, phoneNumber)
         {
+            _role = "Customer";
+        }
 
+        public override string Role
+        {
+            get { return _role; }
         }
     }
 }

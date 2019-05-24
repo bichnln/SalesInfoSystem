@@ -10,7 +10,7 @@ namespace SIS
     public static class Database
     {
         public static List<Customer> CustomerList = new List<Customer>();
-        public static List<Salesperson> SalespersonList = new List<Salesperson>();
+        public static List<Human> StaffList = new List<Human>();
         public static List<Vehicle> VehicleList = new List<Vehicle>();
         public static List<SalesInvoice> InvoiceList = new List<SalesInvoice>();
         public static List<DealerOption> OptionList = new List<DealerOption>();
@@ -57,17 +57,17 @@ namespace SIS
             file.Close();
         }
 
-        public static void LoadSalesPeople(string filePath)
+        public static void LoadStaff(string filePath)
         {
-            string line;
+            /*string line;
             System.IO.StreamReader file = new System.IO.StreamReader( filePath );
             while ((line = file.ReadLine()) != null)
             {
                 string[] words = line.Split( ',' );
-                SalespersonList.Add( new Salesperson( words[0], words[1], words[2], words[3], words[4] ) );
+                StaffList.Add( new Human( words[0], words[1], words[2], words[3], words[4] ) );
             }
 
-            file.Close();
+            file.Close();*/
         }
 
         public static void LoadDealOptions()

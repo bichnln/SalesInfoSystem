@@ -19,6 +19,7 @@ namespace SIS
         private double _negotiatedPrice;
         private Vehicle _tradeV;
         private double _optSum;
+        private string _role;
        
 
         private double TaxCalculation()
@@ -36,7 +37,10 @@ namespace SIS
             }
             return sum;
         }
-        public SalesInvoice() { }
+        public SalesInvoice(string firstName, string lastName, string address, string phoneNumber)
+        {
+            _role = "Salesperson";
+        }
 
         public Customer Cust
         {

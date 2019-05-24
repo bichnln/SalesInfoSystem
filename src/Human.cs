@@ -13,6 +13,7 @@ namespace SIS
         private string _lastName;
         private string _address;
         private string _phoneNumber;
+        private string _role;
 
         public Human(string firstName, string lastName, string address, string phoneNumber)
         {
@@ -56,6 +57,10 @@ namespace SIS
             set { _phoneNumber = value; }
         }
 
+        public abstract string Role
+        {
+            get;
+        }
         public bool AreYou(string name)
         {
             name = name.ToLower();
@@ -67,6 +72,8 @@ namespace SIS
             else
                 return false;
         }
+
+        
 
     }
 }

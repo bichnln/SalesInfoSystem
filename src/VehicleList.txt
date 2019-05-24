@@ -1,0 +1,2 @@
+"New Vehicle",Ferrari,MX9,2011,152000,AUFactory
+"Trade-in Vehicle",Chevrolet,NA201,2015,KAR
