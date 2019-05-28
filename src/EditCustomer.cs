@@ -10,35 +10,28 @@ using System.Windows.Forms;
 
 namespace SIS
 {
+    // forms for editting selected customer's details
     public partial class EditCustomer : Form
     {
         public Customer selected;
         public EditCustomer( ref Customer c )
         {
             InitializeComponent();
+            this.DialogResult = DialogResult.None;
+
             selected = c;
 
+            // Display information of selected customer
+            FormTitleLabel.Text = selected.LastName + "'s Details";
             FirstnameTB.Text = selected.FirstName;
             LastnameTB.Text = selected.LastName;
             AddressTB.Text = selected.Address;
             PhoneTB.Text = selected.PhoneNumber;
-
         }
-
-        private void FirstnameTB_TextChanged( object sender, EventArgs e )
-        {
-
-        }
-
         
         private void CancelButton_Click( object sender, EventArgs e )
         {
             DialogResult = DialogResult.Cancel;
-        }
-
-        private void FirstnameTB_TextChanged_1( object sender, EventArgs e )
-        {
-           
         }
 
         private void SaveButton_Click_1( object sender, EventArgs e )
@@ -64,11 +57,13 @@ namespace SIS
             }
             else
             {
+                // save current input to selected's details
                 selected.FirstName = firstName;
                 selected.LastName = lastName;
                 selected.Address = address;
                 selected.PhoneNumber = phoneNumber;
 
+                MessageBox.Show( "Customer's details edited" );
                 this.DialogResult = DialogResult.OK;
             }
         }

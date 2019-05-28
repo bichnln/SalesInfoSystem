@@ -31,26 +31,23 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.VehicleGridView = new System.Windows.Forms.DataGridView();
+            this.serialNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vehicleTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsSold = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.vehicleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.VehicleButton = new System.Windows.Forms.Button();
             this.CustomerButton = new System.Windows.Forms.Button();
             this.InvoiceButton = new System.Windows.Forms.Button();
             this.DealerOptButton = new System.Windows.Forms.Button();
-            this.CurrentStaffButton = new System.Windows.Forms.Button();
             this.StaffButton = new System.Windows.Forms.Button();
-            this.BackButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.SearchButton = new System.Windows.Forms.Button();
             this.TitleLabel = new System.Windows.Forms.Label();
             this.HorizontalLineLabel = new System.Windows.Forms.Label();
-            this.vehicleTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.serialNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vehicleBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DeleteButton = new System.Windows.Forms.Button();
+            this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.VehicleGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehicleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
@@ -62,11 +59,12 @@
             this.VehicleGridView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.VehicleGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.VehicleGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.vehicleTypeDataGridViewTextBoxColumn,
             this.serialNumberDataGridViewTextBoxColumn,
+            this.vehicleTypeDataGridViewTextBoxColumn,
             this.nameDataGridViewTextBoxColumn,
             this.modelDataGridViewTextBoxColumn,
-            this.yearDataGridViewTextBoxColumn});
+            this.yearDataGridViewTextBoxColumn,
+            this.IsSold});
             this.VehicleGridView.DataSource = this.vehicleBindingSource;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
@@ -77,11 +75,65 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.VehicleGridView.DefaultCellStyle = dataGridViewCellStyle1;
             this.VehicleGridView.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.VehicleGridView.Location = new System.Drawing.Point(118, 115);
+            this.VehicleGridView.Location = new System.Drawing.Point(118, 87);
             this.VehicleGridView.Name = "VehicleGridView";
-            this.VehicleGridView.Size = new System.Drawing.Size(680, 337);
+            this.VehicleGridView.ReadOnly = true;
+            this.VehicleGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.VehicleGridView.Size = new System.Drawing.Size(732, 365);
             this.VehicleGridView.TabIndex = 0;
-            this.VehicleGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.VehicleGridView_CellContentClick);
+          
+            this.VehicleGridView.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.VehicleGridView_CellContentDoubleClick);
+            // 
+            // serialNumberDataGridViewTextBoxColumn
+            // 
+            this.serialNumberDataGridViewTextBoxColumn.DataPropertyName = "SerialNumber";
+            this.serialNumberDataGridViewTextBoxColumn.HeaderText = "SerialNumber";
+            this.serialNumberDataGridViewTextBoxColumn.Name = "serialNumberDataGridViewTextBoxColumn";
+            this.serialNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // vehicleTypeDataGridViewTextBoxColumn
+            // 
+            this.vehicleTypeDataGridViewTextBoxColumn.DataPropertyName = "VehicleType";
+            this.vehicleTypeDataGridViewTextBoxColumn.HeaderText = "VehicleType";
+            this.vehicleTypeDataGridViewTextBoxColumn.Name = "vehicleTypeDataGridViewTextBoxColumn";
+            this.vehicleTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.vehicleTypeDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // modelDataGridViewTextBoxColumn
+            // 
+            this.modelDataGridViewTextBoxColumn.DataPropertyName = "Model";
+            this.modelDataGridViewTextBoxColumn.HeaderText = "Model";
+            this.modelDataGridViewTextBoxColumn.Name = "modelDataGridViewTextBoxColumn";
+            this.modelDataGridViewTextBoxColumn.ReadOnly = true;
+            this.modelDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // yearDataGridViewTextBoxColumn
+            // 
+            this.yearDataGridViewTextBoxColumn.DataPropertyName = "Year";
+            this.yearDataGridViewTextBoxColumn.HeaderText = "Year";
+            this.yearDataGridViewTextBoxColumn.Name = "yearDataGridViewTextBoxColumn";
+            this.yearDataGridViewTextBoxColumn.ReadOnly = true;
+            this.yearDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // IsSold
+            // 
+            this.IsSold.DataPropertyName = "IsSold";
+            this.IsSold.HeaderText = "IsSold";
+            this.IsSold.Name = "IsSold";
+            this.IsSold.ReadOnly = true;
+            this.IsSold.Width = 50;
+            // 
+            // vehicleBindingSource
+            // 
+            this.vehicleBindingSource.DataSource = typeof(SIS.Vehicle);
             // 
             // VehicleButton
             // 
@@ -121,6 +173,7 @@
             this.InvoiceButton.TabIndex = 3;
             this.InvoiceButton.Text = "Invoices";
             this.InvoiceButton.UseVisualStyleBackColor = false;
+            this.InvoiceButton.Click += new System.EventHandler(this.InvoiceButton_Click);
             // 
             // DealerOptButton
             // 
@@ -133,20 +186,7 @@
             this.DealerOptButton.TabIndex = 4;
             this.DealerOptButton.Text = "Dealer Options";
             this.DealerOptButton.UseVisualStyleBackColor = false;
-            // 
-            // CurrentStaffButton
-            // 
-            this.CurrentStaffButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.CurrentStaffButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.CurrentStaffButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CurrentStaffButton.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CurrentStaffButton.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.CurrentStaffButton.Location = new System.Drawing.Point(610, 0);
-            this.CurrentStaffButton.Name = "CurrentStaffButton";
-            this.CurrentStaffButton.Size = new System.Drawing.Size(188, 29);
-            this.CurrentStaffButton.TabIndex = 5;
-            this.CurrentStaffButton.Text = "Name";
-            this.CurrentStaffButton.UseVisualStyleBackColor = false;
+            this.DealerOptButton.Click += new System.EventHandler(this.DealerOptButton_Click);
             // 
             // StaffButton
             // 
@@ -159,26 +199,14 @@
             this.StaffButton.TabIndex = 6;
             this.StaffButton.Text = "Staff";
             this.StaffButton.UseVisualStyleBackColor = false;
-            // 
-            // BackButton
-            // 
-            this.BackButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BackButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.BackButton.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BackButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.BackButton.Location = new System.Drawing.Point(0, 0);
-            this.BackButton.Name = "BackButton";
-            this.BackButton.Size = new System.Drawing.Size(105, 52);
-            this.BackButton.TabIndex = 7;
-            this.BackButton.Text = "Back";
-            this.BackButton.UseVisualStyleBackColor = false;
+            this.StaffButton.Click += new System.EventHandler(this.StaffButton_Click);
             // 
             // AddButton
             // 
             this.AddButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.AddButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.AddButton.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddButton.Location = new System.Drawing.Point(659, 422);
+            this.AddButton.Location = new System.Drawing.Point(694, 471);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(139, 30);
             this.AddButton.TabIndex = 8;
@@ -186,32 +214,12 @@
             this.AddButton.UseVisualStyleBackColor = false;
             this.AddButton.Click += new System.EventHandler(this.button3_Click);
             // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(127, 87);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(578, 27);
-            this.textBox1.TabIndex = 9;
-            // 
-            // SearchButton
-            // 
-            this.SearchButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.SearchButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.SearchButton.Font = new System.Drawing.Font("Lucida Sans Unicode", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchButton.Location = new System.Drawing.Point(714, 87);
-            this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(64, 27);
-            this.SearchButton.TabIndex = 10;
-            this.SearchButton.Text = "Search";
-            this.SearchButton.UseVisualStyleBackColor = false;
-            // 
             // TitleLabel
             // 
             this.TitleLabel.AutoSize = true;
             this.TitleLabel.Font = new System.Drawing.Font("Cambria", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TitleLabel.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.TitleLabel.Location = new System.Drawing.Point(332, 9);
+            this.TitleLabel.Location = new System.Drawing.Point(352, 9);
             this.TitleLabel.Name = "TitleLabel";
             this.TitleLabel.Size = new System.Drawing.Size(152, 47);
             this.TitleLabel.TabIndex = 12;
@@ -222,60 +230,18 @@
             this.HorizontalLineLabel.AutoSize = true;
             this.HorizontalLineLabel.Location = new System.Drawing.Point(-3, 55);
             this.HorizontalLineLabel.Name = "HorizontalLineLabel";
-            this.HorizontalLineLabel.Size = new System.Drawing.Size(805, 13);
+            this.HorizontalLineLabel.Size = new System.Drawing.Size(1051, 13);
             this.HorizontalLineLabel.TabIndex = 13;
             this.HorizontalLineLabel.Text = "_________________________________________________________________________________" +
-    "____________________________________________________";
-            // 
-            // vehicleTypeDataGridViewTextBoxColumn
-            // 
-            this.vehicleTypeDataGridViewTextBoxColumn.DataPropertyName = "VehicleType";
-            this.vehicleTypeDataGridViewTextBoxColumn.HeaderText = "VehicleType";
-            this.vehicleTypeDataGridViewTextBoxColumn.Name = "vehicleTypeDataGridViewTextBoxColumn";
-            this.vehicleTypeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.vehicleTypeDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // serialNumberDataGridViewTextBoxColumn
-            // 
-            this.serialNumberDataGridViewTextBoxColumn.DataPropertyName = "SerialNumber";
-            this.serialNumberDataGridViewTextBoxColumn.HeaderText = "SerialNumber";
-            this.serialNumberDataGridViewTextBoxColumn.Name = "serialNumberDataGridViewTextBoxColumn";
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // modelDataGridViewTextBoxColumn
-            // 
-            this.modelDataGridViewTextBoxColumn.DataPropertyName = "Model";
-            this.modelDataGridViewTextBoxColumn.HeaderText = "Model";
-            this.modelDataGridViewTextBoxColumn.Name = "modelDataGridViewTextBoxColumn";
-            this.modelDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // yearDataGridViewTextBoxColumn
-            // 
-            this.yearDataGridViewTextBoxColumn.DataPropertyName = "Year";
-            this.yearDataGridViewTextBoxColumn.HeaderText = "Year";
-            this.yearDataGridViewTextBoxColumn.Name = "yearDataGridViewTextBoxColumn";
-            this.yearDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // vehicleBindingSource
-            // 
-            this.vehicleBindingSource.DataSource = typeof(SIS.Vehicle);
-            // 
-            // customerBindingSource
-            // 
-            this.customerBindingSource.DataSource = typeof(SIS.Customer);
+    "________________________________________________________________________________" +
+    "_____________";
             // 
             // DeleteButton
             // 
             this.DeleteButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.DeleteButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.DeleteButton.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteButton.Location = new System.Drawing.Point(514, 422);
+            this.DeleteButton.Location = new System.Drawing.Point(529, 471);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(139, 30);
             this.DeleteButton.TabIndex = 15;
@@ -283,21 +249,21 @@
             this.DeleteButton.UseVisualStyleBackColor = false;
             this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
+            // customerBindingSource
+            // 
+            this.customerBindingSource.DataSource = typeof(SIS.Customer);
+            // 
             // VehicleListView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(840, 513);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.HorizontalLineLabel);
             this.Controls.Add(this.TitleLabel);
-            this.Controls.Add(this.SearchButton);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.AddButton);
-            this.Controls.Add(this.BackButton);
             this.Controls.Add(this.StaffButton);
-            this.Controls.Add(this.CurrentStaffButton);
             this.Controls.Add(this.DealerOptButton);
             this.Controls.Add(this.InvoiceButton);
             this.Controls.Add(this.CustomerButton);
@@ -321,20 +287,17 @@
         private System.Windows.Forms.Button CustomerButton;
         private System.Windows.Forms.Button InvoiceButton;
         private System.Windows.Forms.Button DealerOptButton;
-        private System.Windows.Forms.Button CurrentStaffButton;
         private System.Windows.Forms.Button StaffButton;
-        private System.Windows.Forms.Button BackButton;
         private System.Windows.Forms.Button AddButton;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button SearchButton;
         private System.Windows.Forms.Label TitleLabel;
         private System.Windows.Forms.Label HorizontalLineLabel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vehicleTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource vehicleBindingSource;
+        private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn serialNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vehicleTypeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn modelDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn yearDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource vehicleBindingSource;
-        private System.Windows.Forms.Button DeleteButton;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn IsSold;
     }
 }

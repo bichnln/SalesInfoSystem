@@ -79,10 +79,11 @@ namespace SIS
             if (d.DialogResult == DialogResult.OK)
             {
                 DealerOption selected = (DealerOption)OptionGridView.CurrentRow.DataBoundItem;
-
+                // remove selected option from option list
                 Database.OptionList.Remove( selected );
+                // save current state of option list to database
                 Database.SaveDealerOptions();
-
+                // reload data grid view of option list 
                 LoadViewItems();
             }
         }
@@ -92,13 +93,14 @@ namespace SIS
             // get object from data grid view
             DealerOption selected = (DealerOption)OptionGridView.CurrentRow.DataBoundItem;
 
+            // display details of selected DealerOption in another form
             EditDealerOption form = new EditDealerOption( ref selected );
 
             form.ShowDialog();
+
             if (form.DialogResult == DialogResult.OK)
             {
-
-                Database.SaveCustomerList( FilePath.CustomerListPath );
+                Database.SaveDealerOptions();
 
                 LoadViewItems();
             }

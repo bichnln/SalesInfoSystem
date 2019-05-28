@@ -15,23 +15,36 @@ namespace SIS
         public AddTradeInVehicle()
         {
             InitializeComponent();
+            DialogResult = DialogResult.None;
         }
 
-        
-
-        private void SaveButton_Click( object sender, EventArgs e )
+        private void SaveButton_Click_1( object sender, EventArgs e )
         {
-            
-        }
+            string name = NameTB.Text;
+            string model = ModelTB.Text;
+            string year = YearTB.Text;
+            string make = MakeTB.Text;
 
-        private void YearLabel_Click( object sender, EventArgs e )
-        {
+            string msg = "";
 
-        }
+            // check if input is valid
+            msg += Validation.EmptyCheck( name, NameLabel.Text );
+            msg += Validation.EmptyCheck( model, ModelLabel.Text );
+            msg += Validation.YearCheck( year);
+            msg += Validation.EmptyCheck( make, MakeLabel.Text );
 
-        private void MakeTB_TextChanged( object sender, EventArgs e )
-        {
-
+            if (msg != "")
+            {
+                MessageBox.Show( msg );
+            }
+            else
+            {
+                TradeInVehicle v = new TradeInVehicle( name, model, year, make );
+                // add v to vehicle list
+                Database.VehicleList.Add( v );
+                MessageBox.Show( "Trade-in vehicle added!" );
+                DialogResult = DialogResult.OK;
+            }
         }
     }
 }

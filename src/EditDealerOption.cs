@@ -10,10 +10,11 @@ using System.Windows.Forms;
 
 namespace SIS
 {
+    // forms for editting selected dealer-installed option
     public partial class EditDealerOption : Form
     {
         public DealerOption selected;
-        public EditDealerOption(ref DealerOption o)
+        public EditDealerOption( ref DealerOption o )
         {
             InitializeComponent();
             selected = o;
@@ -25,11 +26,6 @@ namespace SIS
             this.DialogResult = DialogResult.None;
         }
 
-        private void textBox1_TextChanged( object sender, EventArgs e )
-        {
-
-        }
-
         private void SaveButton_Click( object sender, EventArgs e )
         {
             string code = CodeTB.Text;
@@ -38,9 +34,10 @@ namespace SIS
 
             string msg = "";
 
+            // validate input
             msg += Validation.EmptyCheck( code, CodeLabel.Text );
             msg += Validation.EmptyCheck( desc, DescriptionLabel.Text );
-            msg += Validation.EmptyCheck( price, PriceLabel.Text );
+            msg += Validation.PriceCheck( price, PriceLabel.Text );
 
             if (msg != "")
             {
@@ -52,19 +49,15 @@ namespace SIS
                 selected.Description = desc;
                 selected.Price = Convert.ToDouble( price );
 
+                MessageBox.Show( "Dealer option's updated!" );
                 this.DialogResult = DialogResult.OK;
             }
-
         }
 
         private void CancelButton_Click( object sender, EventArgs e )
         {
-            this.Close();
+            this.DialogResult = DialogResult.Cancel;
         }
 
-        private void CodeTB_TextChanged( object sender, EventArgs e )
-        {
-
-        }
     }
 }

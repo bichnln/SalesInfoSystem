@@ -10,7 +10,7 @@ namespace SIS
     {
         private string _make;
         private string _vehicleType;
-        public TradeInVehicle(string name, string model, string year, string make) : base(name, model, year)
+        public TradeInVehicle( string name, string model, string year, string make ) : base( name, model, year )
         {
             _make = make;
             _vehicleType = "Trade-in Vehicle";
@@ -19,7 +19,11 @@ namespace SIS
         {
             get { return _vehicleType; }
         }
-
+        // serial number is automatically generated based on vehicle's detauks
+        public override string SerialNumber
+        {
+            get { return "T" + Name[0] + Name[1] + Model[0] + Model[1] + Make[0] + Make[2] + Year; }
+        }
         public string Make
         {
             get { return _make; }

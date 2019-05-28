@@ -27,6 +27,10 @@ namespace SIS
             get { return _manufacturer; }
             set { _manufacturer = value; }
         }
+        public override string SerialNumber
+        {
+            get { return "N" + Name[0] + Name[1] + Model[0] + Model[1] + Manufacturer[0] + Manufacturer[2]  + Year; }
+        }
 
         public double BaseCost
         {

@@ -10,16 +10,13 @@ using System.Windows.Forms;
 
 namespace SIS
 {
+    // form for adding new dealer-installed options to database
     public partial class AddDealerOption : Form
     {
         public AddDealerOption()
         {
             InitializeComponent();
-        }
-
-        private void textBox1_TextChanged( object sender, EventArgs e )
-        {
-
+            this.DialogResult = DialogResult.None;
         }
 
         private void SaveButton_Click( object sender, EventArgs e )
@@ -30,11 +27,10 @@ namespace SIS
 
             string msg = "";
 
-            this.DialogResult = DialogResult.None;
-
+            // validate input
             msg += Validation.EmptyCheck( code, CodeLabel.Text );
             msg += Validation.EmptyCheck( desc, DescriptionLabel.Text );
-            msg += Validation.EmptyCheck( price, PriceLabel.Text );
+            msg += Validation.PriceCheck( price, PriceLabel.Text );
 
             if (msg != "")
             {
@@ -42,17 +38,19 @@ namespace SIS
             }
             else
             {
+                // add dealer option to database if all inputs are valid
                 DealerOption opt = new DealerOption( code, desc, price );
+                // save created option to option list 
                 Database.OptionList.Add( opt );
+
                 MessageBox.Show( "Dealer option added successfully!" );
                 this.DialogResult = DialogResult.OK;
             }
-
         }
 
         private void CancelButton_Click( object sender, EventArgs e )
         {
-            this.Close();
+            this.DialogResult = DialogResult.Cancel;
         }
     }
 }

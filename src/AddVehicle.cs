@@ -15,26 +15,7 @@ namespace SIS
         public AddVehicle()
         {
             InitializeComponent();
-        }
-
-       
-
-        private void SaveButton_Click( object sender, EventArgs e )
-        {
-            
-                
-
-            
-        }
-
-        private void YearLabel_Click( object sender, EventArgs e )
-        {
-
-        }
-
-        private void FormTitleLabel_Click( object sender, EventArgs e )
-        {
-
+            this.DialogResult = DialogResult.None;
         }
 
         private void SaveButton_Click_1( object sender, EventArgs e )
@@ -52,8 +33,8 @@ namespace SIS
             // check if input is valid
             msg += Validation.EmptyCheck( name, "Name" );
             msg += Validation.EmptyCheck( model, "Model" );
-            msg += Validation.EmptyCheck( year, "Year" );
-            msg += Validation.EmptyCheck( cost, "Base Cost" );
+            msg += Validation.YearCheck( year);
+            msg += Validation.PriceCheck( cost, "Base Cost" );
             msg += Validation.EmptyCheck( manu, "Manufacturer" );
 
             if (msg != "")
@@ -64,8 +45,10 @@ namespace SIS
             else
             {
                 NewVehicle v = new NewVehicle( name, model, year, cost, manu );
+                // add v to vehicle list
                 Database.VehicleList.Add( v );
-                MessageBox.Show( "New customer added!" );
+
+                MessageBox.Show( "New vehicle added!" );
                 DialogResult = DialogResult.OK;
             }
         }
@@ -73,7 +56,6 @@ namespace SIS
         private void CancelButton_Click( object sender, EventArgs e )
         {
             DialogResult = DialogResult.Cancel;
-            
         }
     }
 }

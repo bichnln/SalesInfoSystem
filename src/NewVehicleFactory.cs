@@ -13,6 +13,7 @@ namespace SIS
         private string _year;
         private string _baseCost;
         private string _manufacturer;
+
         public NewVehicleFactory(string name, string model, string year, string baseCost, string manufacturer)
         {
             _name = name;

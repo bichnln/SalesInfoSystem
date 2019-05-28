@@ -19,5 +19,8 @@ namespace SIS
         {
             get { return _role; }
         }
+
+        public override string Account => throw new NotImplementedException();
+        public override string Password { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }

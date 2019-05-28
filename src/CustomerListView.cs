@@ -10,27 +10,13 @@ using System.Windows.Forms;
 
 namespace SIS
 {
+    // form provides view of customer list for management staffs 
     public partial class CustomerListView : Form
     {
         public CustomerListView()
         {
             InitializeComponent();
             LoadViewItems();
-
-        }
-
-        private void SaveButton_Click( object sender, EventArgs e )
-        {
-            AddCustomer form = new AddCustomer();
-            form.ShowDialog();
-
-            if (form.DialogResult == DialogResult.OK)
-            {
-                Database.SaveCustomerList( FilePath.CustomerListPath );
-                
-                LoadViewItems();
-               
-            }
         }
 
         private void LoadViewItems()
@@ -48,8 +34,6 @@ namespace SIS
             this.Hide();
             VehicleListView window = new VehicleListView();
             window.Show();
-            
-
         }
 
         private void DealerOptButton_Click( object sender, EventArgs e )
@@ -73,27 +57,48 @@ namespace SIS
             form.Show();
         }
 
+        // actually this is add Button 
+        private void SaveButton_Click( object sender, EventArgs e )
+        {
+            AddCustomer form = new AddCustomer();
+            form.ShowDialog();
+
+            if (form.DialogResult == DialogResult.OK)
+            {   
+                // save current state of customer list to database
+                Database.SaveCustomerList();
+                // reload data grid view
+                LoadViewItems();
+            }
+        }
+
+        // double-click on selected row to see details and edit
         private void CustomerGridView_CellDoubleClick( object sender, DataGridViewCellEventArgs e )
         {
             // get object from data grid view
             Customer selected = (Customer)CustomerGridView.CurrentRow.DataBoundItem;
 
-            EditCustomer form = new EditCustomer( ref selected );
-
-            form.ShowDialog();
-            if (form.DialogResult == DialogResult.OK)
+            if (selected != null)
             {
-               
-                Database.SaveCustomerList( FilePath.CustomerListPath );
+                EditCustomer form = new EditCustomer( ref selected );
 
-                LoadViewItems();
+                form.ShowDialog();
+                if (form.DialogResult == DialogResult.OK)
+                {
+                    // save current state of customer list to database
+                    Database.SaveCustomerList();
+
+                    LoadViewItems();
+                }
             }
-
-            
+            else
+            {
+                MessageBox.Show( "No Data chosen!" );
+            }         
         }
 
+        // deleted selected customer
         private void DeleteButton_Click( object sender, EventArgs e )
-
         {
             AreYouSure d = new AreYouSure();
 
@@ -102,14 +107,13 @@ namespace SIS
             if (d.DialogResult == DialogResult.OK)
             {
                 Customer selected = (Customer)CustomerGridView.CurrentRow.DataBoundItem;
-
+                // remove selected customer from customer list (customer collection)
                 Database.CustomerList.Remove( selected );
-                Database.SaveCustomerList( FilePath.CustomerListPath );
+                // save current state of customer list to database
+                Database.SaveCustomerList();
 
                 LoadViewItems();
             }
-           
-
         }
     }
 }

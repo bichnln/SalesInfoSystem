@@ -102,7 +102,7 @@
             this.CodeTB.Name = "CodeTB";
             this.CodeTB.Size = new System.Drawing.Size(372, 23);
             this.CodeTB.TabIndex = 15;
-            this.CodeTB.TextChanged += new System.EventHandler(this.CodeTB_TextChanged);
+            
             // 
             // PriceLabel
             // 

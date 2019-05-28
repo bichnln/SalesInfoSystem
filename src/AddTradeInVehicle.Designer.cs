@@ -106,6 +106,7 @@
             this.YearTB.Name = "YearTB";
             this.YearTB.Size = new System.Drawing.Size(93, 23);
             this.YearTB.TabIndex = 8;
+            
             // 
             // SaveButton
             // 
@@ -117,6 +118,7 @@
             this.SaveButton.TabIndex = 9;
             this.SaveButton.Text = "SAVE";
             this.SaveButton.UseVisualStyleBackColor = false;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click_1);
             // 
             // CancelButton
             // 
@@ -149,7 +151,7 @@
             this.MakeTB.Name = "MakeTB";
             this.MakeTB.Size = new System.Drawing.Size(372, 23);
             this.MakeTB.TabIndex = 13;
-            this.MakeTB.TextChanged += new System.EventHandler(this.MakeTB_TextChanged);
+           
             // 
             // MakeLabel
             // 

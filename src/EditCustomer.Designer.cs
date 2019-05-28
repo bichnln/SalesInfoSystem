@@ -98,7 +98,7 @@
             this.FirstnameTB.Name = "FirstnameTB";
             this.FirstnameTB.Size = new System.Drawing.Size(372, 23);
             this.FirstnameTB.TabIndex = 5;
-            this.FirstnameTB.TextChanged += new System.EventHandler(this.FirstnameTB_TextChanged_1);
+            
             // 
             // LastnameTB
             // 
@@ -164,6 +164,7 @@
             this.FormTitleLabel.Size = new System.Drawing.Size(501, 43);
             this.FormTitleLabel.TabIndex = 11;
             this.FormTitleLabel.Text = "Edit Customer\'s Information";
+            
             // 
             // EditCustomer
             // 

@@ -13,7 +13,7 @@ namespace SIS
         private string _lastName;
         private string _address;
         private string _phoneNumber;
-        private string _role;
+        
 
         public Human(string firstName, string lastName, string address, string phoneNumber)
         {
@@ -60,6 +60,15 @@ namespace SIS
         public abstract string Role
         {
             get;
+        }
+        public abstract string Account
+        {
+            get;
+        }
+        public abstract string Password
+        {
+            get;
+            set;
         }
         public bool AreYou(string name)
         {

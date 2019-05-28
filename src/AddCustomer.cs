@@ -10,18 +10,14 @@ using System.Windows.Forms;
 
 namespace SIS
 {
+    // form for adding new customer records
     public partial class AddCustomer : Form
     {
         public AddCustomer()
         {
             InitializeComponent();
+            this.DialogResult = DialogResult.None;
         }
-
-        private void FirstnameTB_TextChanged( object sender, EventArgs e )
-        {
-
-        }
-
         
         private void CancelButton_Click( object sender, EventArgs e )
         {
@@ -37,25 +33,24 @@ namespace SIS
 
             string msg = "";
 
-            DialogResult = DialogResult.None;
-
             // check if input is valid
             msg += Validation.EmptyCheck( firstName, "First Name" );
             msg += Validation.EmptyCheck( lastName, "Last Name" );
             msg += Validation.EmptyCheck( address, "Address " );
             msg += Validation.PhoneNumberCheck( phoneNumber );
 
+            // if msg is not "", it means the input is invalid
             if (msg != "")
             {
                 MessageBox.Show( msg );
             }
-            else
-            {
+            else 
+            {   
+                // save customer's record if the inputs are valid
                 Customer c = new Customer( firstName, lastName, address, phoneNumber );
+                // add created customer to customer list
                 Database.CustomerList.Add( c );
                 
-
-
                 MessageBox.Show( "New customer added!" );
                 DialogResult = DialogResult.OK;
             }

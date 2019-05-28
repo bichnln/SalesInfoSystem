@@ -8,10 +8,10 @@ namespace SIS
 {
     public abstract class Vehicle
     {
-        private string _serialNumber;
         private string _name;
         private string _model;
         private string _year;
+        private bool _isSold = false;
 
         public Vehicle(string name, string model, string year)
         {    
@@ -25,11 +25,9 @@ namespace SIS
             get;
         }
         
-
-        public string SerialNumber
+        public abstract string SerialNumber
         {
-            get { return _serialNumber; }
-            set { _serialNumber = value; }
+            get;
         }
 
         public string Name
@@ -50,6 +48,11 @@ namespace SIS
             set { _year = value; }
         }
 
+        public bool IsSold
+        {
+            get { return _isSold; }
+            set { _isSold = value; }
+        }
         public string FullDescription()
         {
             string fullDesc;
@@ -58,22 +61,6 @@ namespace SIS
                      + "Year: " + _year + '\n';
 
             return fullDesc;
-        }
-        public bool IsInYear(string y)
-        {
-            if (_year == y)
-            {
-                return true;
-            }
-            else return false;
-        }
-        public bool HasName(string n)
-        {
-            if (_name.ToLower().Contains( n ))
-            {
-                return true;
-            }
-            else return false;
         }
     }
 }

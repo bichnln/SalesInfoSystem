@@ -29,57 +29,60 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.CustomerGridView = new System.Windows.Forms.DataGridView();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.StaffGridView = new System.Windows.Forms.DataGridView();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.humanBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.CustomerButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.InvoiceButton = new System.Windows.Forms.Button();
             this.DealerOptButton = new System.Windows.Forms.Button();
-            this.CurrentStaffButton = new System.Windows.Forms.Button();
             this.StaffButton = new System.Windows.Forms.Button();
-            this.BackButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.SearchButton = new System.Windows.Forms.Button();
             this.TitleLabel = new System.Windows.Forms.Label();
             this.HorizontalLineLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.CustomerGridView)).BeginInit();
+            this.DeleteButton = new System.Windows.Forms.Button();
+            this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.StaffGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.humanBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // CustomerGridView
+            // StaffGridView
             // 
-            this.CustomerGridView.AutoGenerateColumns = false;
-            this.CustomerGridView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.CustomerGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.CustomerGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.StaffGridView.AllowUserToAddRows = false;
+            this.StaffGridView.AllowUserToDeleteRows = false;
+            this.StaffGridView.AutoGenerateColumns = false;
+            this.StaffGridView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.StaffGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.StaffGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iDDataGridViewTextBoxColumn,
             this.lastNameDataGridViewTextBoxColumn,
             this.firstNameDataGridViewTextBoxColumn,
             this.fullNameDataGridViewTextBoxColumn,
             this.addressDataGridViewTextBoxColumn,
             this.phoneNumberDataGridViewTextBoxColumn});
-            this.CustomerGridView.DataSource = this.customerBindingSource;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.CustomerGridView.DefaultCellStyle = dataGridViewCellStyle5;
-            this.CustomerGridView.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.CustomerGridView.Location = new System.Drawing.Point(118, 115);
-            this.CustomerGridView.Name = "CustomerGridView";
-            this.CustomerGridView.Size = new System.Drawing.Size(680, 337);
-            this.CustomerGridView.TabIndex = 0;
+            this.StaffGridView.DataSource = this.humanBindingSource;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.StaffGridView.DefaultCellStyle = dataGridViewCellStyle1;
+            this.StaffGridView.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.StaffGridView.Location = new System.Drawing.Point(118, 82);
+            this.StaffGridView.Name = "StaffGridView";
+            this.StaffGridView.Size = new System.Drawing.Size(680, 370);
+            this.StaffGridView.TabIndex = 0;
+            
+            this.StaffGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.StaffGridView_CellDoubleClick_1);
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -124,9 +127,9 @@
             this.phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
             this.phoneNumberDataGridViewTextBoxColumn.Width = 110;
             // 
-            // customerBindingSource
+            // humanBindingSource
             // 
-            this.customerBindingSource.DataSource = typeof(SIS.Customer);
+            this.humanBindingSource.DataSource = typeof(SIS.Human);
             // 
             // CustomerButton
             // 
@@ -182,20 +185,6 @@
             this.DealerOptButton.UseVisualStyleBackColor = false;
             this.DealerOptButton.Click += new System.EventHandler(this.DealerOptButton_Click);
             // 
-            // CurrentStaffButton
-            // 
-            this.CurrentStaffButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.CurrentStaffButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.CurrentStaffButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CurrentStaffButton.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CurrentStaffButton.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.CurrentStaffButton.Location = new System.Drawing.Point(610, 0);
-            this.CurrentStaffButton.Name = "CurrentStaffButton";
-            this.CurrentStaffButton.Size = new System.Drawing.Size(188, 29);
-            this.CurrentStaffButton.TabIndex = 5;
-            this.CurrentStaffButton.Text = "Name";
-            this.CurrentStaffButton.UseVisualStyleBackColor = false;
-            // 
             // StaffButton
             // 
             this.StaffButton.BackColor = System.Drawing.SystemColors.ButtonFace;
@@ -209,25 +198,12 @@
             this.StaffButton.Text = "Staff";
             this.StaffButton.UseVisualStyleBackColor = false;
             // 
-            // BackButton
-            // 
-            this.BackButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BackButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.BackButton.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BackButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.BackButton.Location = new System.Drawing.Point(0, 0);
-            this.BackButton.Name = "BackButton";
-            this.BackButton.Size = new System.Drawing.Size(105, 52);
-            this.BackButton.TabIndex = 7;
-            this.BackButton.Text = "Back";
-            this.BackButton.UseVisualStyleBackColor = false;
-            // 
             // AddButton
             // 
             this.AddButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.AddButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.AddButton.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddButton.Location = new System.Drawing.Point(659, 408);
+            this.AddButton.Location = new System.Drawing.Point(636, 459);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(139, 30);
             this.AddButton.TabIndex = 8;
@@ -235,32 +211,12 @@
             this.AddButton.UseVisualStyleBackColor = false;
             this.AddButton.Click += new System.EventHandler(this.button3_Click);
             // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(127, 87);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(578, 27);
-            this.textBox1.TabIndex = 9;
-            // 
-            // SearchButton
-            // 
-            this.SearchButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.SearchButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.SearchButton.Font = new System.Drawing.Font("Lucida Sans Unicode", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchButton.Location = new System.Drawing.Point(714, 87);
-            this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(64, 27);
-            this.SearchButton.TabIndex = 10;
-            this.SearchButton.Text = "Search";
-            this.SearchButton.UseVisualStyleBackColor = false;
-            // 
             // TitleLabel
             // 
             this.TitleLabel.AutoSize = true;
             this.TitleLabel.Font = new System.Drawing.Font("Cambria", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TitleLabel.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.TitleLabel.Location = new System.Drawing.Point(346, 8);
+            this.TitleLabel.Location = new System.Drawing.Point(355, 8);
             this.TitleLabel.Name = "TitleLabel";
             this.TitleLabel.Size = new System.Drawing.Size(103, 47);
             this.TitleLabel.TabIndex = 12;
@@ -276,28 +232,43 @@
             this.HorizontalLineLabel.Text = "_________________________________________________________________________________" +
     "____________________________________________________";
             // 
+            // DeleteButton
+            // 
+            this.DeleteButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DeleteButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.DeleteButton.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteButton.Location = new System.Drawing.Point(466, 459);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(139, 30);
+            this.DeleteButton.TabIndex = 15;
+            this.DeleteButton.Text = "Delete";
+            this.DeleteButton.UseVisualStyleBackColor = false;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            // 
+            // customerBindingSource
+            // 
+            this.customerBindingSource.DataSource = typeof(SIS.Customer);
+            // 
             // StaffListView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(798, 501);
+            this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.HorizontalLineLabel);
             this.Controls.Add(this.TitleLabel);
-            this.Controls.Add(this.SearchButton);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.AddButton);
-            this.Controls.Add(this.BackButton);
             this.Controls.Add(this.StaffButton);
-            this.Controls.Add(this.CurrentStaffButton);
             this.Controls.Add(this.DealerOptButton);
             this.Controls.Add(this.InvoiceButton);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.CustomerButton);
-            this.Controls.Add(this.CustomerGridView);
+            this.Controls.Add(this.StaffGridView);
             this.Name = "StaffListView";
             this.Text = "StaffListView";
-            ((System.ComponentModel.ISupportInitialize)(this.CustomerGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StaffGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.humanBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -306,7 +277,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView CustomerGridView;
+        private System.Windows.Forms.DataGridView StaffGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
@@ -318,13 +289,11 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button InvoiceButton;
         private System.Windows.Forms.Button DealerOptButton;
-        private System.Windows.Forms.Button CurrentStaffButton;
         private System.Windows.Forms.Button StaffButton;
-        private System.Windows.Forms.Button BackButton;
         private System.Windows.Forms.Button AddButton;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button SearchButton;
         private System.Windows.Forms.Label TitleLabel;
         private System.Windows.Forms.Label HorizontalLineLabel;
+        private System.Windows.Forms.BindingSource humanBindingSource;
+        private System.Windows.Forms.Button DeleteButton;
     }
 }

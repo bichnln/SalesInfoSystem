@@ -79,7 +79,7 @@
             this.ManuLabel.Size = new System.Drawing.Size(129, 22);
             this.ManuLabel.TabIndex = 2;
             this.ManuLabel.Text = "Manufacturer";
-            this.ManuLabel.Click += new System.EventHandler(this.YearLabel_Click);
+           
             // 
             // YearLabel
             // 
@@ -167,7 +167,7 @@
             this.FormTitleLabel.Size = new System.Drawing.Size(381, 43);
             this.FormTitleLabel.TabIndex = 11;
             this.FormTitleLabel.Text = "Vehicle\'s Information";
-            this.FormTitleLabel.Click += new System.EventHandler(this.FormTitleLabel_Click);
+            
             // 
             // BaseCostTB
             // 

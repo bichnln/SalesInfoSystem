@@ -11,18 +11,17 @@ namespace SIS
     {
         static void Main( string[] args )
         {
-            string customerPath = @"C:\Users\SAPPHIRE\Documents\University\Software Architecture & Design\Assignment 2\CustomerList.txt";
-
-            Database.LoadCustomers( customerPath );
-            Database.LoadVehicles( FilePath.VehicleListPath );
+            Database.LoadCustomers();
+            Database.LoadVehicles();
             Database.LoadDealOptions();
+            Database.LoadInvoiceList();
+            Database.LoadStaff();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault( false );
-            Application.Run( new CustomerListView());
-
-         
-
-           
+            Application.Run( new Login() );
         }
     }
 }
+
+            

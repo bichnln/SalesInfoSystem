@@ -12,6 +12,7 @@ namespace SIS
         private string _lastName;
         private string _address;
         private string _phoneNumber;
+       
 
         public ManagementStaffFactory( string firstName, string lastName, string address, string phoneNumber )
         {
@@ -25,5 +26,7 @@ namespace SIS
         {
             return new ManagementStaff( _firstName, _lastName, _address, _phoneNumber );
         }
+       
+          
     }
 }
